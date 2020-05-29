@@ -31,4 +31,4 @@ class Command(BaseCommand):
                 db_product.image_nutrition_url = product.image_nutrition_url
 
 
-        capture_message("Commande cron exécutée (DbUpdate)", level="error")
+        capture_message("Commande cron exécutée (DbUpdate)", level="info")
