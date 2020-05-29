@@ -3,6 +3,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from products.openfoodfact.models.categorydownloader import CategoryDownloader
 from products.models import Product
 from sentry_sdk import capture_message
+import logging
 
 
 class Command(BaseCommand):
@@ -30,5 +31,5 @@ class Command(BaseCommand):
                 db_product.image_nutrition_url = product.image_nutrition_url
                 db_product.save()
 
-
+        logging.info("Commande cron exécutée (DbUpdate)")
         capture_message("Commande cron exécutée (DbUpdate)", level="info")
