@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 from django.core.exceptions import ObjectDoesNotExist
 from products.openfoodfact.models.categorydownloader import CategoryDownloader
-from products.models import Product
+from products.models import Product, Category
 from sentry_sdk import capture_message
 
 
@@ -25,7 +25,7 @@ class Command(BaseCommand):
                 db_product.nutrition_grade_fr = product.nutrition_grade_fr
                 db_product.id = product.id
                 db_product.brands = product.brands
-                db_product.id_category = product.id_category
+                db_product.id_category = category.id
                 db_product.url = product.url
                 db_product.image_url = product.image_url
                 db_product.image_nutrition_url = product.image_nutrition_url
