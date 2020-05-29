@@ -31,4 +31,4 @@ class Command(BaseCommand):
                 db_product.save()
         
         capture_message("Commande cron exécutée (DbUpdate)", level="info")
-        self.stdout.write('Commande cron exécutée (DbUpdate)')
+        self.stdout.write('Commande DbUpdate exécutée !')

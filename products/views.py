@@ -1,17 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from products.models import Product, Favorite
-import sentry_sdk
 from sentry_sdk import capture_message
-from sentry_sdk.integrations.django import DjangoIntegration
 
-sentry_sdk.init(
-    dsn="https://3399934128f24c26bc98e7f74050e73e@o396835.ingest.sentry.io/5250733",
-    integrations=[DjangoIntegration()],
-
-    # If you wish to associate users to errors (assuming you are using
-    # django.contrib.auth) you may enable sending PII data.
-    send_default_pii=True
-)
 
 def result_search(request):
     """Django view search result page."""
@@ -19,7 +9,8 @@ def result_search(request):
     result = None
     try:
         product_search = request.GET['q']
-        capture_message(f"Recherche de l'utilisateur : {product_search}", level="info")
+        capture_message(
+            f"Recherche de l'utilisateur : {product_search}", level="info")
         product = Product.objects.filter(
             product_name_fr__icontains=product_search).first()
         if product:
