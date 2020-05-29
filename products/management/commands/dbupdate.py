@@ -21,7 +21,7 @@ class Command(BaseCommand):
                     continue
 
                 db_product.product_name_fr = product.product_name_fr
-                db_product.stores = product.stores
+                db_product.store = product.store
                 db_product.nutrition_grade_fr = product.nutrition_grade_fr
                 db_product.id = product.id
                 db_product.brands = product.brands
