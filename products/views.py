@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from products.models import Product, Favorite
+from sentry_sdk import capture_message
 
 
 def result_search(request):
@@ -8,6 +9,7 @@ def result_search(request):
     result = None
     try:
         product_search = request.GET['q']
+        capture_message(f"Recherche de l'utilisateur : {product_search}", level="info")
         product = Product.objects.filter(
             product_name_fr__icontains=product_search).first()
         if product:
