@@ -11,7 +11,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         # Download the categories then the ranges
         category = CategoryDownloader()
-        self.stdout.write('On télécharge les catégories et les produits !')
+        self.stdout.write('On télécharge les produits !')
         all_categories = category.get_category()
         for category in all_categories:
             for product in category.products:
