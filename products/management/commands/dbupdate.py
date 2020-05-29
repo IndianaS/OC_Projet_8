@@ -29,6 +29,7 @@ class Command(BaseCommand):
                 db_product.url = product.url
                 db_product.image_url = product.image_url
                 db_product.image_nutrition_url = product.image_nutrition_url
+                db_product.save()
 
 
         capture_message("Commande cron exécutée (DbUpdate)", level="info")
