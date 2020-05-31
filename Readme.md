@@ -1,4 +1,4 @@
-# - Projet 8 OC.
+# - Projet 8 OC. (P_11 Améliorez un projet existant)
 
 # - Description:
 - Creation of an application to find a substitute for consumer products.
