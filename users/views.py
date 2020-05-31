@@ -41,3 +41,6 @@ def favorites_user(request):
 
     return render(request, 'users/favorites.html',
                   {'substitutes': substitutes})
+
+def password_reset(request):
+    return render(request, 'users/password_reset.html')

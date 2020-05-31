@@ -135,3 +135,5 @@ LOGOUT_REDIRECT_URL = "home"
 
 if os.environ.get("ENV") == "production":
     django_heroku.settings(locals())
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -1,5 +1,5 @@
 from django.contrib.auth import views as auth_views
-from django.urls import path
+from django.urls import path, include
 
 from . import views
 
@@ -15,4 +15,5 @@ urlpatterns = [
     path("profile/", views.profile, name="profile"),
     path("create_account/", views.create_account, name="create_account"),
     path("favorites/", views.favorites_user, name="favorites"),
+    path("", include("django.contrib.auth.urls"), name="password_reset"),
 ]

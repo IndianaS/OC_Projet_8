@@ -13,7 +13,9 @@
         {{ form.as_p }}
         <button type="submit" id="button-submit">Se connecter</button>
     </form>
+    <br>
+    <h3 class="text-center mt-0 font-custom-title">
+    <a href="{% url 'users:password_reset' %}">Réinitialiser votre mot de passe</a>
+    </h3>
 </section>
-
-
 {% endblock content %}
