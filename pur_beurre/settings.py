@@ -136,4 +136,9 @@ LOGOUT_REDIRECT_URL = "home"
 if os.environ.get("ENV") == "production":
     django_heroku.settings(locals())
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "indianaprojet11@gmail.com"
+EMAIL_HOST_PASSWORD = "azsetyiop"
