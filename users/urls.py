@@ -15,5 +15,4 @@ urlpatterns = [
     path("profile/", views.profile, name="profile"),
     path("create_account/", views.create_account, name="create_account"),
     path("favorites/", views.favorites_user, name="favorites"),
-    path("", include("django.contrib.auth.urls"), name="password_reset"),
 ]
