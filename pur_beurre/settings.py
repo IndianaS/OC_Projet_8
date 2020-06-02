@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "django_extensions",
     "products.apps.ProductsConfig",
+    "autocomplete.apps.AutocompleteConfig",
 ]
 
 MIDDLEWARE = [

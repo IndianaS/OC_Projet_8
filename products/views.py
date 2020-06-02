@@ -51,3 +51,16 @@ def favorites(request):
         return redirect('products:product_sheet', code=id_substitut)
 
     return redirect('home')
+
+def delete_favorites(request):
+
+    if request.method == 'POST':
+        user = request.user
+        id_substitute = request.POST.get('id_substitute')
+        substitute = Product.objects.get(id=id_substitute)
+        product_delete = Favorite.objects.get(
+            user=user,
+            substitute=substitute
+        )
+        product_delete.delete()
+        return redirect('users:favorites')

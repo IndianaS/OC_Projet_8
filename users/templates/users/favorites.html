@@ -24,6 +24,10 @@
                                             <br>
                                             <li><a href="{% url 'products:product_sheet' substitute.id %}">{{ substitute.product_name_fr }}</a></li>
                                             <li><a href="{{ substitute.url }}">Voir la fiche d'Open Food Fact</a></li>
+                                            <form action="{% url 'products:delete_favorites' %}" method="POST">{% csrf_token %}<button
+                                                type="submit"><i class="far fa-trash-alt"></i></button>&nbsp Supprimer
+                                            <input type="hidden" id="id_substitute" name="id_substitute" value="{{ substitute.id }}">
+                                        </form>
                                         </div>
                                         <br>
                                         
