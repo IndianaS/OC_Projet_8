@@ -56,3 +56,29 @@ class ProductTestViews(TestCase):
         self.assertEqual(favorite.product.id, id_product)
         self.assertRedirects(
             response, '/products/details/1254547/', status_code=302)
+
+    def test_views_delete_favorites(self):
+        self.client.login(username="UserTest", password="PaswordTest&120")
+        response = self.client.get('/users/favorites/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_views_delete_favorites_with_POST_method(self):
+        self.client.login(username="UserTest", password="PaswordTest&120")
+        user =  User.objects.get(username="UserTest")
+        product = Product.objects.get(id=1254547)
+        substitute = Product.objects.get(id=1854796)
+
+        favorite_save = Favorite.objects.get_or_create(
+            user=user,
+            product=product,
+            substitute=substitute
+        )
+        response = self.client.post(
+            '/products/delete_favorites',
+            {
+                "id_substitute": substitute.id
+            })
+
+        self.assertEqual(Favorite.objects.count(), 0)
+        self.assertRedirects(
+            response, '/users/favorites/', status_code=302)

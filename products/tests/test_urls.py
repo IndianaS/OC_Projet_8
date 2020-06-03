@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.urls import resolve
 from django.shortcuts import reverse
 
-from products.views import result_search, product_sheet, favorites
+from products.views import result_search, product_sheet, favorites, delete_favorites
 
 
 class UrlTestCase(TestCase):
@@ -18,3 +18,7 @@ class UrlTestCase(TestCase):
     def test_favorites_url_view(self):
         found = resolve(reverse("products:favorites"))
         self.assertEqual(found.func, favorites)
+
+    def test_delete_favorites_url_view(self):
+        found = resolve(reverse("products:delete_favorites"))
+        self.assertEqual(found.func, delete_favorites)
