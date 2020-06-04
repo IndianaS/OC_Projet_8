@@ -8,5 +8,5 @@ from autocomplete.views import complete
 class UrlTestCase(TestCase):
 
     def test_complete_url_view(self):
-        found = resolve(reverse("complate"))
+        found = resolve(reverse("autocomplete:complete"))
         self.assertEqual(found.func, complete)

@@ -6,6 +6,6 @@ from products.models import Product
 
 def complete(request):
     searched_term = request.GET.get("term")
-    product = Product.objects.get_all_by_term(searched_term)
-    product = [product.name for product in product]
+    product = Product.objects.filter(product_name_fr__icontains=searched_term)
+    product = [product.product_name_fr for product in product]
     return JsonResponse(product, safe=False)
