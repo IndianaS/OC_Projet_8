@@ -2,12 +2,8 @@
 
 <form action="{% url 'products:result_search' %}" method="get">
     <div>
-     <input type="search" id="result_search" name="q">
+     <input type="search" id="result_search" class="result_search" name="q">
      <button>Rechercher</button>
     </div>
 </form>
 
-<script>
-    const autocomplete_url = "{% url 'autocomplete:complete' %}";
-</script>
-<script src="{% static 'js/autocomplete.js' %}"></script>

@@ -1,4 +1,4 @@
 $(".result_search").autocomplete({
     source: autocomplete_url,
-    minLength: 3
+    minLength: 3,
 });
