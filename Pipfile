@@ -7,7 +7,7 @@ verify_ssl = true
 ipython = "*"
 
 [packages]
-django = "*"
+django = ">=3.0.7"
 psycopg2 = "*"
 requests = "*"
 django-extensions = "*"
